@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package hello;
+
+
+service Hello {
+	rpc GetInfo() returns (Message) {}
+
+}
+
+message Message {
+	string msg = 1;
+}
