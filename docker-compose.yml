@@ -1,0 +1,21 @@
+version: '3'
+
+networks:
+  grpc:
+      external:
+        name: grpc
+
+services:
+  hello:
+    build:
+      context: ./python
+      args:
+        http_proxy: ${http_proxy}
+        https_proxy: ${https_proxy}
+        no_proxy: ${no_proxy}
+    container_name: hello
+    image: hello:dev
+    networks:
+      - grpc
+    volumes:
+      - ".:/opt/hello"
