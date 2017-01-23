@@ -19,3 +19,4 @@ services:
       - grpc
     volumes:
       - ".:/opt/hello"
+    entrypoint: ["python", "server.py"]
