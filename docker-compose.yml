@@ -19,4 +19,8 @@ services:
       - grpc
     volumes:
       - ".:/opt/hello"
-    entrypoint: ["python", "server.py"]
+    ports:
+      - "3000:3000"
+    #entrypoint: ["python", "server.py"]
+    entrypoint: ["/bin/bash"]    
+

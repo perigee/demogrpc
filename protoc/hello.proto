@@ -4,13 +4,13 @@ package hello;
 
 
 service Hello {
-	rpc GetInfo(InfoRequest) returns (MessageInfo); 
+	rpc GetInfo(InfoRequest) returns (InfoReply); 
 
 }
 
 // placeholder for empty Request body
 message InfoRequest {}
 
-message MessageInfo {
-	string msg = 1;
+message InfoReply {
+	string message = 1;
 }

@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='hello.proto',
   package='hello',
   syntax='proto3',
-  serialized_pb=_b('\n\x0bhello.proto\x12\x05hello\"\r\n\x0bInfoRequest\"\x1a\n\x0bMessageInfo\x12\x0b\n\x03msg\x18\x01 \x01(\t2:\n\x05Hello\x12\x31\n\x07GetInfo\x12\x12.hello.InfoRequest\x1a\x12.hello.MessageInfob\x06proto3')
+  serialized_pb=_b('\n\x0bhello.proto\x12\x05hello\"\r\n\x0bInfoRequest\"\x1c\n\tInfoReply\x12\x0f\n\x07message\x18\x01 \x01(\t28\n\x05Hello\x12/\n\x07GetInfo\x12\x12.hello.InfoRequest\x1a\x10.hello.InfoReplyb\x06proto3')
 )
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -50,15 +50,15 @@ _INFOREQUEST = _descriptor.Descriptor(
 )
 
 
-_MESSAGEINFO = _descriptor.Descriptor(
-  name='MessageInfo',
-  full_name='hello.MessageInfo',
+_INFOREPLY = _descriptor.Descriptor(
+  name='InfoReply',
+  full_name='hello.InfoReply',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='msg', full_name='hello.MessageInfo.msg', index=0,
+      name='message', full_name='hello.InfoReply.message', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -77,11 +77,11 @@ _MESSAGEINFO = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=37,
-  serialized_end=63,
+  serialized_end=65,
 )
 
 DESCRIPTOR.message_types_by_name['InfoRequest'] = _INFOREQUEST
-DESCRIPTOR.message_types_by_name['MessageInfo'] = _MESSAGEINFO
+DESCRIPTOR.message_types_by_name['InfoReply'] = _INFOREPLY
 
 InfoRequest = _reflection.GeneratedProtocolMessageType('InfoRequest', (_message.Message,), dict(
   DESCRIPTOR = _INFOREQUEST,
@@ -90,12 +90,12 @@ InfoRequest = _reflection.GeneratedProtocolMessageType('InfoRequest', (_message.
   ))
 _sym_db.RegisterMessage(InfoRequest)
 
-MessageInfo = _reflection.GeneratedProtocolMessageType('MessageInfo', (_message.Message,), dict(
-  DESCRIPTOR = _MESSAGEINFO,
+InfoReply = _reflection.GeneratedProtocolMessageType('InfoReply', (_message.Message,), dict(
+  DESCRIPTOR = _INFOREPLY,
   __module__ = 'hello_pb2'
-  # @@protoc_insertion_point(class_scope:hello.MessageInfo)
+  # @@protoc_insertion_point(class_scope:hello.InfoReply)
   ))
-_sym_db.RegisterMessage(MessageInfo)
+_sym_db.RegisterMessage(InfoReply)
 
 
 try:
@@ -119,7 +119,7 @@ try:
       self.GetInfo = channel.unary_unary(
           '/hello.Hello/GetInfo',
           request_serializer=InfoRequest.SerializeToString,
-          response_deserializer=MessageInfo.FromString,
+          response_deserializer=InfoReply.FromString,
           )
 
 
@@ -136,7 +136,7 @@ try:
         'GetInfo': grpc.unary_unary_rpc_method_handler(
             servicer.GetInfo,
             request_deserializer=InfoRequest.FromString,
-            response_serializer=MessageInfo.SerializeToString,
+            response_serializer=InfoReply.SerializeToString,
         ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -175,7 +175,7 @@ try:
       ('hello.Hello', 'GetInfo'): InfoRequest.FromString,
     }
     response_serializers = {
-      ('hello.Hello', 'GetInfo'): MessageInfo.SerializeToString,
+      ('hello.Hello', 'GetInfo'): InfoReply.SerializeToString,
     }
     method_implementations = {
       ('hello.Hello', 'GetInfo'): face_utilities.unary_unary_inline(servicer.GetInfo),
@@ -194,7 +194,7 @@ try:
       ('hello.Hello', 'GetInfo'): InfoRequest.SerializeToString,
     }
     response_deserializers = {
-      ('hello.Hello', 'GetInfo'): MessageInfo.FromString,
+      ('hello.Hello', 'GetInfo'): InfoReply.FromString,
     }
     cardinalities = {
       'GetInfo': cardinality.Cardinality.UNARY_UNARY,
