@@ -6,15 +6,15 @@ networks:
         name: grpc
 
 services:
-  hello:
+  hellopython:
     build:
       context: ./python
       args:
         http_proxy: ${http_proxy}
         https_proxy: ${https_proxy}
         no_proxy: ${no_proxy}
-    container_name: hello
-    image: hello:dev
+    container_name: hellopython
+    image: hellopython:dev
     networks:
       - grpc
     volumes:
@@ -24,3 +24,19 @@ services:
     entrypoint: ["python", "server.py"]
     #entrypoint: ["/bin/bash"]    
 
+  hellonodejs:
+    build:
+      context: ./nodejs
+      args:
+        http_proxy: ${http_proxy}
+        https_proxy: ${https_proxy}
+        no_proxy: ${no_proxy}
+    container_name: hellonodejs
+    image: hellonodejs:dev
+    networks:
+      - grpc
+    volumes:
+      - ".:/opt/hello"
+    ports:
+      - "3001:3000"
+    entrypoint: ["/bin/bash"]    
