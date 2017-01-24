@@ -21,6 +21,6 @@ services:
       - ".:/opt/hello"
     ports:
       - "3000:3000"
-    #entrypoint: ["python", "server.py"]
-    entrypoint: ["/bin/bash"]    
+    entrypoint: ["python", "server.py"]
+    #entrypoint: ["/bin/bash"]    
 

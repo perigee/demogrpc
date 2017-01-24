@@ -10,7 +10,7 @@ _ONE_DAY_IN_SECONDS = 60 * 60 * 24
 class Greeter(hello_pb2_grpc.HelloServicer):
 
     def GetInfo(self, request, context):
-        return hello_pb2.InfoReply(message="hello")
+        return hello_pb2.InfoReply(message="Hello from python")
 
 
 def serve():

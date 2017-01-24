@@ -4,7 +4,7 @@ package hello;
 
 
 service Hello {
-	rpc GetInfo(InfoRequest) returns (InfoReply); 
+	rpc GetInfo(InfoRequest) returns (InfoReply);
 
 }
 
