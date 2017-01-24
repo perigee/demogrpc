@@ -20,4 +20,14 @@ Create client side to test all three services
 ### HTTP2 load balancing (https://github.com/grpc/grpc/blob/master/doc/load-balancing.md)
 
 
-### Error handling https://github.com/grpc/grpc-go/issue/646
+### Error handling
+
+
+#### Error status code
+
+
+www.grpc.io/docs/guides/error.html#error-status-codes
+
+#### By metadata
+
+https://github.com/grpc/grpc-go/issue/646
