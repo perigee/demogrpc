@@ -21,19 +21,92 @@
 
 class: center, middle
 
-# Title
+# gRPC + Protocal Buffers
 
 ---
 
-# Agenda
+# Content
 
-1. Introduction
+1. Current situation in Auto
+2. Propagation of chaos
 2. Deep-dive
 3. ...
 
 ---
 
-# Introduction
+# Current situation in Auto 
+
+### Introduction
+#### Microservices architecture (gateway, etc.,)
+#### Multi-languages (JS, Python, Go)
+#### REST (HTTP/1) as protocal, JSON payload
+
+### Problems
+#### JSON payload schema/endpoints changing frequently
+#### Repeative code for HTTP, and JSON parsing
+#### Error handling ??
+
+---
+
+# Propagation of chaos
+
+    Schema of project changed -> stack (json parsing modification)
+    -> provision (json parsing modification) -> provisioner (json parsing modification)
+
+    Endpoints changed (with modified payload) -> ...
+---
+
+# Introduction of gRPC
+
+**gRPC** (http://www.grpc.io) is Google proposed RPC framework.
+
+- Large-scale distributed microservices system
+    - composed with different programming languages
+- RPC over HTTP/2 (low-latency transport over WWW)
+    - Same status codes, haders as HTTP/1
+    - Just Faster and more gentle
+
+![gRPC](http://www.grpc.io/grpc.github.io/img/landing-2.svg)
+
+---
+
+## Authentication
+
+### SSL/TLS, token based authenticaton
+
+## Error handling and debugging
+
+---
+
+# Introduction of Protocal Buffers (Proto3)
+
+Protocol buffers are a flexible, efficient, automated mechanism for serializing structured data – think SOAP (nightmare)
+
+## IDL
+
+### RPC declaration
+### Message Type
+
+## Features
+
+### Efficient and compact binary data representation
+### Clear compatibility rules, be extended over time
+### Generates idiomatic, easy to use classes for many langrages
+### Strongly typed, less error prone
+
+---
+class: center, middle
+# Demo
+
+---
+
+# References
+
+- http://www.slideshare.net/AboutYouGmbH/robert-kubis-grpc-boilerplate-to-highperformance-scalable-apis-codetalks-2015
+- https://marutsingh.com
+
+
+---
 
     </textarea>
     <script src="js/remark.min.js" type="text/javascript">
