@@ -1,5 +1,8 @@
+appdirs==1.4.0
 enum34==1.1.6
-grpcio==1.0.4
-grpcio-tools==1.0.4
-protobuf==3.1.0.post1
+grpcio==1.1.0
+grpcio-tools==1.1.0
+packaging==16.8
+protobuf==3.2.0
+pyparsing==2.1.10
 six==1.10.0
