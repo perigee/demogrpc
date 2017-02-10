@@ -57,9 +57,22 @@ class: center, middle
 #### REST (HTTP/1) as protocal, JSON payload
 
 ### Problems
-#### JSON payload schema/endpoints changing frequently
+#### JSON payload schema/endpoints not yet mature
 #### Repeative code for HTTP, and JSON parsing
 #### Error handling ??
+
+---
+
+# Code in microservice
+
+.left-column[
+### Endpoints + Payload
+### HTTP REST code + JSON Parsing
+### Business logic
+]
+.right-column[
+![code](pic/code_now.svg)
+]
 
 ---
 
@@ -69,6 +82,13 @@ class: center, middle
     -> provision (json parsing modification) -> provisioner (json parsing modification)
 
     Endpoints changed (with modified payload) -> ...
+---
+
+# Why not using framework (Code generation)
+
+- hijacked by framework, stuck with same stuff
+- code generation: mapping your idea, reducing repetitive code
+
 ---
 
 # Introduction of gRPC

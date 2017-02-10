@@ -28,6 +28,10 @@ Create client side to test all three services
 
 www.grpc.io/docs/guides/error.html#error-status-codes
 
+
+- [error, protoc, metadata] https://github.com/grpc/grpc-go/issues/646
+
+
 #### By metadata
 
 https://github.com/grpc/grpc-go/issue/646
@@ -39,3 +43,8 @@ https://github.com/grpc/grpc-go/issue/646
 
 
 ### Integration
+
+
+### Code generation vs Framework
+
+- https://www.gamedev.net/topic/670851-code-generation-vs-framework/
