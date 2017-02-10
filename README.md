@@ -36,6 +36,8 @@ www.grpc.io/docs/guides/error.html#error-status-codes
 
 https://github.com/grpc/grpc-go/issue/646
 
+- https://github.com/go-kit/kit/issues/283
+
 
 ### REST gateway
 
