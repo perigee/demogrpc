@@ -16,16 +16,14 @@
       .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
        /* Two-column layout */
       .left-column {
-        color: #777;
-        width: 40%;
-        height: 92%;
+           width: 50%;
         float: left;
       }
         .left-column h2:last-of-type, .left-column h3:last-child {
           color: #000;
         }
       .right-column {
-        width: 50%;
+        width: 40%;
         float: right;
         padding-top: 1em;
       }
@@ -78,10 +76,17 @@ class: center, middle
 
 # Chaos Propagation
 
-    Schema of project changed -> stack (json parsing modification)
-    -> provision (json parsing modification) -> provisioner (json parsing modification)
 
-    Endpoints changed (with modified payload) -> ...
+
+.left-column[
+### Schema of project changed :(
+### Schema of provision changed :(
+### Provisioner: WHAT ?
+]
+.right-column[
+![code](pic/propagation.svg)
+]
+
 ---
 
 # Why not using framework (Code generation)
@@ -109,7 +114,10 @@ class: center, middle
 
 ### SSL/TLS, token based authenticaton
 
-## Error handling and debugging
+### Error handling and debugging
+
+- Through `error` definition in Protocal Buffers
+- Through gRPC `metadata`
 
 ---
 
