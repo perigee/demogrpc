@@ -118,7 +118,7 @@ class: center, middle
 - SSL/TLS
 - token based authenticaton
 
-## Error handling and debugging
+## Error handling
 
 - Through `error` definition in Protocol Buffers
 - Through gRPC `metadata`
@@ -196,13 +196,20 @@ Same proto file, generates the `javascript`, `python`, `golang` (etc.,) code
 
 # Some issues
 
-#### Ubisoft Proxies HTTP/2.0 support in mid 2017
+### Under socpe of AUTO
+
+#### Protocol Buffers is not readable, only schema (Comparing to JSON)
 #### RESTful/gRPC gateway only got golang library
 #### With current scale of Auto, cannot 100% benefit from tech leverage brought by gRPC
-#### Protocol Buffers is not readable, only schema (Comparing to JSON)
-#### Not well browser support for the moment
-#### Client and Service adoption (REST -> gRPC), steep workload
+#### Service adoption (REST -> gRPC), steep workload
 #### Many dependent services (consul, vault, etc.,) only support the REST API not gRPC
+
+### Under socpe of Ubisoft
+
+#### Ubisoft Proxies HTTP/2.0 support in mid 2017
+#### Not well browser support for the moment
+#### Client adoption (REST -> gRPC).
+
 ---
 
 
