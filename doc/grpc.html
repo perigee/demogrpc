@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Title</title>
+    <title>gRPC+Protocol Buffers</title>
     <meta charset="utf-8">
     <style>
       @import url(css/yanone.css);
@@ -40,14 +40,13 @@ class: center, middle
 
 # Content
 
-1. Current situation in Auto
-2. Chaos Propagation
-2. Deep-dive
-3. ...
+1. Microservices in Auto
+2. gRPC
+3. Protocol Buffers
 
 ---
 
-# Current situation in Auto 
+# Microservices in Auto 
 
 ### Introduction
 #### Microservices architecture (gateway, etc.,)
@@ -55,9 +54,8 @@ class: center, middle
 #### REST (HTTP/1) as protocol, JSON payload
 
 ### Problems
-#### JSON payload schema/endpoints not yet mature
+#### JSON payload schema/endpoints design not yet mature
 #### Repeative code for HTTP, and JSON parsing
-#### Error handling ??
 
 ---
 
@@ -76,8 +74,6 @@ class: center, middle
 
 # Chaos Propagation
 
-
-
 .left-column[
 ### Schema of project changed :(
 ### Schema of provision changed :(
@@ -89,10 +85,15 @@ class: center, middle
 
 ---
 
-# Why not using framework (Code generation)
+# Using framework
 
-- hijacked by framework, stuck with same stuff
-- code generation: mapping your idea, reducing repetitive code
+### Steep learning curve of framework
+###  Follow the ideology of the framework
+
+# Using code generator
+
+### Define your idea with DSL 
+### Generate code based on DSL, reducing repetitive code
 
 ---
 
@@ -102,8 +103,8 @@ class: center, middle
 
 - Large-scale distributed microservices system
     - composed with different programming languages
-- RPC over HTTP/2 (low-latency transport over WWW)
-    - Same status codes, haders as HTTP/1
+- RPC over HTTP/2.0 (low-latency transport over WWW)
+    - Same status codes, headers as HTTP/1.0
     - Just Faster and more gentle
 
 ![gRPC](http://www.grpc.io/grpc.github.io/img/landing-2.svg)
@@ -129,23 +130,46 @@ class: center, middle
 
 ---
 
-# Introduction of Protocol Buffers (Proto3)
-
-Protocol buffers are a flexible, efficient, automated mechanism for serializing structured data – think SOAP (nightmare)
-
-## IDL
+# Introduction of Protocol Buffers (Proto v3)
 
 ### RPC declaration
-### Message Type
 
-## Features
+- Protocol buffers are a way of encoding structured data in an efficient yet extensible format – think SOAP (nightmare), but well designed
 
 ### Efficient and compact binary data representation
+
+- Faster deserialization, less CPU/MEM usage
+
 ### Clear compatibility rules, be extended over time
 ### Generates idiomatic, easy to use classes for many languages
 ### Strongly typed, less error prone
 
 ---
+
+# Proto file
+
+```
+syntax = "proto3";
+
+package hello;
+
+
+service Hello {
+	rpc GetInfo(InfoRequest) returns (InfoReply);
+}
+
+// placeholder for empty Request body
+message InfoRequest {}
+
+message InfoReply {
+	string message = 1;
+}
+```
+
+Same proto file, generates the `javascript`, `python`, `golang` (etc.,) code
+
+---
+
 
 # Generating the `Garbage` code
 
@@ -172,12 +196,13 @@ Protocol buffers are a flexible, efficient, automated mechanism for serializing 
 
 # Some issues
 
-### Ubisoft Proxies HTTP/2.0 support in mid 2017
-### RESTful/gRPC gateway only got golang library
-### With current scale of Auto, cannot 100% benefit from tech leverage brought by gRPC
-### Clients adoption
-### Service adoption (REST -> gRPC), steep workload
-### Many dependent services (consul, vault, etc.,) only support the REST API not gRPC
+#### Ubisoft Proxies HTTP/2.0 support in mid 2017
+#### RESTful/gRPC gateway only got golang library
+#### With current scale of Auto, cannot 100% benefit from tech leverage brought by gRPC
+#### Protocol Buffers is not readable, only schema (Comparing to JSON)
+#### Not well browser support for the moment
+#### Client and Service adoption (REST -> gRPC), steep workload
+#### Many dependent services (consul, vault, etc.,) only support the REST API not gRPC
 ---
 
 

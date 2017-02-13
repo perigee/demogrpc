@@ -7,7 +7,6 @@ package hello;
 
 service Hello {
 	rpc GetInfo(InfoRequest) returns (InfoReply);
-
 }
 
 // placeholder for empty Request body
